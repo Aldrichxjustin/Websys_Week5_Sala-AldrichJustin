@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Aldrich Justin Sala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #011828 0%, #0984e3 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        header h1 { margin: 0; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { color: rgba(255,255,255,0.8); font-size: 1.2rem; }
+
+        nav {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 2px solid #0984e3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav ul li { margin: 0 20px; }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #636e72;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: #0984e3; }
+
+        .nav-social {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .nav-social a {
+            color: #636e72;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .nav-social a:hover {
+            color: #0984e3;
+            transform: translateY(-1px);
+        }
+
+        main {
+            max-width: 1320px;
+            width: 100%;
+            margin: 32px auto;
+            padding: 0 24px;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 86px;
+            align-self: stretch;
+        }
+
+        .side-stack {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: space-between;
+        }
+
+        .side-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 6px solid #0984e3;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            text-align: left;
+        }
+
+        .side-card h3 {
+            margin: 0 0 12px;
+            color: #011828;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 42px;
+            margin-bottom: 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        section:hover { transform: translateY(-5px); }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #0984e3;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(9, 132, 227, 0.3);
+        }
+
+        .profile-name {
+            margin: -8px 0 18px;
+            font-weight: 800;
+            color: #2d3436;
+            font-size: 1.35rem;
+            letter-spacing: -0.2px;
+        }
+
+        .bio-text {
+            text-align: justify;
+            color: #000000;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 18px;
+            align-items: start;
+            margin-top: 10px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 6px solid #0984e3;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            text-align: left;
+        }
+
+        .edu {
+            margin-top: 28px;
+            text-align: left;
+        }
+
+        .education-card {
+            margin-top: 0;
+        }
+
+        .personal-info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .personal-info-item {
+            background: #f8fafc;
+            border: 1px solid rgba(9, 132, 227, 0.18);
+            border-radius: 10px;
+            padding: 12px 12px;
+        }
+
+        .personal-info-name {
+            font-weight: 800;
+            color: #2d3436;
+            font-size: 0.95rem;
+        }
+
+        .personal-info-description {
+            margin-top: 2px;
+            color: #636e72;
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .contact-box {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-item {
+            background: #f8fafc;
+            border: 1px solid rgba(9, 132, 227, 0.18);
+            border-radius: 10px;
+            padding: 14px 14px;
+        }
+
+        .contact-item .label {
+            font-weight: 800;
+            color: #2d3436;
+            font-size: 0.95rem;
+        }
+
+        .contact-item .value {
+            margin-top: 4px;
+            color: #636e72;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .edu h3 {
+            margin: 0 0 12px;
+            color: #011828;
+        }
+
+        .edu-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .edu-item {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 14px 14px;
+            border: 1px solid rgba(9, 132, 227, 0.18);
+        }
+
+        .edu-item .school {
+            font-weight: 800;
+            color: #2d3436;
+        }
+
+        .edu-item .meta {
+            margin-top: 4px;
+            color: #636e72;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 850px) {
+            .page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                top: auto;
+            }
+
+            main {
+                padding: 0 16px;
+            }
+        }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #ffffff;
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Who is Aldrich?</h1>
+    </header>
+
+    <nav>
+        <div class="nav-inner">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" style="color: #0984e3;">About Me</a></li>
+            </ul>
+
+            <div class="nav-social" aria-label="Social links">
+                <a href="mailto:aldrichjustin15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Aldrichxjustin" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aldrich-justin-sala-642b75383/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/aldrichxjustin" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-grid">
+            <section>
+                <img src="assets/me.png" alt="Aldrich Justin Sala" class="profile-img">
+                <div class="profile-name">Aldrich Justin Sala</div>
+
+                <div class="about-grid">
+                    <div class="bio-text">
+                        <p>I am an Information Technology student at National University Manila with a dedicated interest in software development and emerging technologies. As I progress in my studies, I have become increasingly motivated to understand the complexities of modern web systems and the role they play in shaping digital experiences. I actively seek opportunities to improve my knowledge and refine my skills through continuous learning and hands-on practice.
+
+                            <br><br>Currently, my primary focus lies in the field of Web Systems and Technologies, where I aim to develop well-structured, efficient, and user-centered digital solutions. I am committed to building a strong foundation in web development by mastering fundamental concepts and applying them in real-world scenarios.
+                            
+                            <br><br>Beyond academics, I value maintaining a well-rounded lifestyle. I spend my free time engaging in activities such as gaming, exploring new places through travel, and cooking. These experiences allow me to recharge, stay inspired, and approach challenges with creativity and a fresh perspective.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="side-stack">
+                    <div class="personal-info-card side-card">
+                        <h3>Personal Information</h3>
+                        <ul class="personal-info-list">
+                            <li class="personal-info-item">
+                                <div class="personal-info-name">Nickname</div>
+                                <div class="personal-info-description">Drich</div>
+                            </li>
+                            <li class="personal-info-item">
+                                <div class="personal-info-name">Age</div>
+                                <div class="personal-info-description">22</div>
+                            </li>
+                            <li class="personal-info-item">
+                                <div class="personal-info-name">Address</div>
+                                <div class="personal-info-description">45 Tolentino St. Brgy. Damayan, Quezon City</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="edu education-card side-card">
+                        <h3>Education</h3>
+                        <ul class="edu-list">
+                            <li class="edu-item">
+                                <div class="school">National University Manila</div>
+                                <div class="meta">Bachelor of Science in Information Technology • Current</div>
+                            </li>
+                            <li class="edu-item">
+                                <div class="school">Espiritu Santo Parochial School of Manila</div>
+                                <div class="meta">Senior High School / High School / Elementary • [2011 - 2022]</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-card side-card">
+                        <h3>Contact Information</h3>
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <div class="label">Email</div>
+                                <div class="value">aldrichjustin15@gmail.com</div>
+                            </li>
+                            <li class="contact-item">
+                                <div class="label">Phone</div>
+                                <div class="value">+63 961 034 6134</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>Aldrich Justin Sala | Web Systems Lab Activity</p>
+    </footer>
+
+</body>
+</html>

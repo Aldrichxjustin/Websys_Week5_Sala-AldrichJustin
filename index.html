@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Aldrich Justin Sala</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #011828 0%, #0984e3 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        nav {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 2px solid #0984e3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #636e72;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #0984e3;
+        }
+        .nav-social {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .nav-social a {
+            color: #636e72;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .nav-social a:hover {
+            color: #0984e3;
+            transform: translateY(-1px);
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: #ffffff;
+            padding: 35px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        section p {
+            text-align: justify;
+        }
+
+        .intro {
+            text-align: center;
+        }
+
+        .intro p {
+            text-align: justify;
+            max-width: 820px;
+            margin: 10px auto 0;
+        }
+        .row-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 0 0 18px;
+            color: #2d3436;
+        }
+
+        .hobby-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .hobby-card {
+            background: #f8fafc;
+            border: 1px solid rgba(9, 132, 227, 0.12);
+            border-radius: 14px;
+            padding: 18px 14px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+        }
+
+        .hobby-icon {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .hobby-label {
+            font-weight: 800;
+            color: #2d3436;
+            font-size: 0.95rem;
+        }
+
+        .skills-wrap {
+            display: grid;
+            gap: 16px;
+        }
+
+        .skill {
+            display: grid;
+            grid-template-columns: 140px 1fr 52px;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .skill-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+            color: #2d3436;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .skill-badge i {
+            font-size: 28px;
+        }
+
+        .bar {
+            height: 12px;
+            background: #e9eef5;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .bar > span {
+            display: block;
+            height: 100%;
+            border-radius: 999px;
+        }
+
+        .skill-pct {
+            font-weight: 800;
+            color: #636e72;
+            text-align: right;
+        }
+
+        .bar-html > span { width: 70%; background: #e44d26; }
+        .bar-css > span { width: 60%; background: #1572b6; }
+        .bar-js > span { width: 40%; background: #f7df1e; }
+
+        .tools {
+            margin-top: 18px;
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #2d3436;
+        }
+
+        .tool {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            color: #2d3436;
+            opacity: 0.9;
+        }
+
+        .tool i {
+            font-size: 28px;
+        }
+
+        @media (max-width: 900px) {
+            .hobby-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hobby-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skill {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .skill-pct {
+                text-align: left;
+            }
+        }
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+        .project-list li {
+            background: #f1f3f5;
+            margin: 12px 0;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 6px solid #0984e3;
+            border-right: 6px solid #0984e3;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+        .project-list li:hover {
+            background: #e3f2fd;
+            transform: translateX(6px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        .project-list a {
+            text-decoration: none;
+            color: #2d3436;
+            display: block;
+            text-align: center;
+        }
+        .hobby-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .hobby-list li {
+            background: #f1f3f5;
+            margin: 12px 0;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 6px solid #00b894;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+        }
+        .hobby-list li span {
+            background: linear-gradient(90deg, #00b894, #55efc4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hobby-list li:hover {
+            background: #dff9f1;
+            transform: translateX(6px);
+            box-shadow: 0 6px 15px rgba(172, 23, 23, 0.08);
+        }
+
+        footer {
+            text-align: center; 
+            color: #020202;
+            padding: 20px;
+            background: #f8f8f8;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aldrich Justin Sala</h1>
+        <p>Information Technology Student</p>
+    </header>
+    <nav>
+        <div class="nav-inner">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+
+            <div class="nav-social" aria-label="Social links">
+                <a href="mailto:aldrichjustin15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Aldrichxjustin" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aldrich-justin-sala-642b75383/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/aldrichxjustin" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="intro">
+            <h2>Personal Portfolio Website</h2>
+            <p>I am an Information Technology student from National University Manila with a growing passion for software development and emerging technologies. I am currently focused on developing my knowledge in web systems and continuously improving my technical skills. In my free time, I enjoy gaming, traveling, and cooking, which help me maintain creativity and balance.</p>
+        </section>
+
+        <section id="Hobbies">
+            <h2 class="section-title">Hobbies &amp; Interests</h2>
+            <div class="hobby-cards">
+                <div class="hobby-card">
+                    <div class="hobby-icon">👨‍💻</div>
+                    <div class="hobby-label">Coding &amp; Development</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎮</div>
+                    <div class="hobby-label">Playing Video Games</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">✈️</div>
+                    <div class="hobby-label">Traveling to New Places</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">👩🏻‍🍳</div>
+                    <div class="hobby-label">Cooking Food</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Skills">
+            <h2 class="section-title">My Skills &amp; Tools</h2>
+
+            <div class="skills-wrap">
+                <div class="skill">
+                    <div class="skill-badge"><i class="fa-brands fa-html5" style="color:#e44d26"></i>HTML</div>
+                    <div class="bar bar-html"><span></span></div>
+                    <div class="skill-pct">70%</div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-badge"><i class="fa-brands fa-css3-alt" style="color:#1572b6"></i>CSS</div>
+                    <div class="bar bar-css"><span></span></div>
+                    <div class="skill-pct">60%</div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-badge"><i class="fa-brands fa-js" style="color:#d1b200"></i>JavaScript</div>
+                    <div class="bar bar-js"><span></span></div>
+                    <div class="skill-pct">40%</div>
+                </div>
+            </div>
+
+            <div class="tools" aria-label="Tools">
+                <div class="tool"><i class="fa-solid fa-code" style="color:#0984e3"></i>VS Code</div>
+                <div class="tool"><i class="fa-brands fa-github" style="color:#111"></i>GitHub</div>
+            </div>
+        </section>
+
+        <section id="Projects">
+            <h2 class="section-title">Recent Projects</h2>
+            <ul class="project-list">
+                <li><a href="https://aldrichxjustin.github.io/websys-week1-Sala-Aldrich-Justin/" target="_blank" rel="noreferrer"><strong>My First Web Development Build</strong></a></li>
+                <li><a href="https://aldrichxjustin.github.io/websys-week2-Sala-Aldrich-Justin/" target="_blank" rel="noreferrer"><strong>Lifestyle & Interest Showcase</strong></a></li>
+                <li><a href="https://aldrichxjustin.github.io/websys-week3-Sala-Aldrich-Justin/" target="_blank" rel="noreferrer"><strong>Modernizing Web Standards</strong></a></li>
+                <li><a href="https://github.com/j0110158/TigerMotorPartdApp" target="_blank" rel="noreferrer"><strong>Tiger Motor Parts App</strong></a></li>
+                <li><a href="https://github.com/Herrsch00/BrainEXE" target="_blank" rel="noreferrer"><strong>BrainEXE | Full-Stack Software Development Project</strong></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Web Systems and Technologies | 2026</p>
+    </footer>
+</body>
+</html>
